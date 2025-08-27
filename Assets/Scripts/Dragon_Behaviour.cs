@@ -1,8 +1,11 @@
-using System;
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Dragon_Behaviour : MonoBehaviour
 {
+    public bool dragonTurn = false;
     [SerializeField] public float dragon_hp = 100;
     [SerializeField] HeroBehavior heroBehavior;
     [SerializeField] Material idle;
@@ -17,26 +20,41 @@ public class Dragon_Behaviour : MonoBehaviour
         attack = 0;
     }
 
-    
+
     // Update is called once per frame
     void Update()
     {
-        if (testturn == false)
-            {
+        if (heroBehavior.player_Turn == false && dragonTurn)
+        {
             attack = UnityEngine.Random.Range(0, 1);
             if (attack == 0 || attack == 1)
             {
-                Debug.Log("vuur");
-                gameObject.GetComponent<Renderer>().material = fire;
+                StartCoroutine(FireAttack());
             }
             else if (attack == 1)
             {
-                Debug.Log("Swipe");
-                gameObject.GetComponent<Renderer>().material = sweep_1;
-                gameObject.GetComponent<Renderer>().material = sweep_2;
+                StartCoroutine(SwipeAttack());
+
             }
-                //testturn = true;
-                gameObject.GetComponent<Renderer>().material = idle;
+            //testturn = true;
+            gameObject.GetComponent<Renderer>().material = idle;
         }
+    }
+
+    private IEnumerator FireAttack()
+    {
+        Debug.Log("vuur");
+        gameObject.GetComponent<Renderer>().material = fire;
+        yield return new WaitForSeconds(1f);
+    }
+    private IEnumerator SwipeAttack()
+    {
+
+        Debug.Log("Swipe");
+        gameObject.GetComponent<Renderer>().material = sweep_1;
+        yield return new WaitForSeconds(1f);
+        gameObject.GetComponent<Renderer>().material = sweep_2;
+        yield return new WaitForSeconds(1f);
+
     }
 }

@@ -105,5 +105,6 @@ public class HeroBehavior : MonoBehaviour
         Debug.Log(attackStrenght);
         dragon_Behaviour.dragon_hp = dragon_Behaviour.dragon_hp - attackStrenght;
         soundPlay = false;
+        dragon_Behaviour.dragonTurn = true;
     }
 }
