@@ -23,6 +23,10 @@ public class HeroBehavior : MonoBehaviour
     [SerializeField] AudioClip hit10;
 
     [SerializeField] public float hero_HP = 3;
+
+    [SerializeField] Material idle;
+    [SerializeField] Material attack;
+
     public bool player_Turn = true;
     [SerializeField] bool soundPlay = false;
     private float space_Presses = 0;
@@ -53,11 +57,9 @@ public class HeroBehavior : MonoBehaviour
                     break;
                 case 4:
                     audioSource.PlayOneShot(hit02);
-
                     break;
                 case 6:
                     audioSource.PlayOneShot(hit03);
-
                     break;
                 case 8:
                     audioSource.PlayOneShot(hit04);
@@ -84,7 +86,7 @@ public class HeroBehavior : MonoBehaviour
         }
 
         if (player_Turn && attackAction.WasPressedThisFrame())
-        {
+        { 
             player_Turn = false;
             soundPlay = true;
             StartCoroutine(PlayerAttack(attackDuration));
@@ -101,6 +103,7 @@ public class HeroBehavior : MonoBehaviour
         }
         attackStrenght = space_Presses * attackMultiplyer;
         Debug.Log(attackStrenght);
+        dragon_Behaviour.dragon_hp = dragon_Behaviour.dragon_hp - attackStrenght;
         soundPlay = false;
     }
 }

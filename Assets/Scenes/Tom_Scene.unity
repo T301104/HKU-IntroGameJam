@@ -153,6 +153,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Dragon_Behaviour
   dragon_hp: 100
   heroBehavior: {fileID: 0}
+  idle: {fileID: 0}
+  sweep_1: {fileID: 0}
+  sweep_2: {fileID: 0}
+  fire: {fileID: 0}
+  testturn: 0
 --- !u!65 &323778390
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -350,6 +355,7 @@ GameObject:
   - component: {fileID: 1961781779}
   - component: {fileID: 1961781778}
   - component: {fileID: 1961781777}
+  - component: {fileID: 1961781782}
   m_Layer: 0
   m_Name: PlayerTemp
   m_TagString: Untagged
@@ -370,9 +376,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HeroBehavior
   dragon_Behaviour: {fileID: 323778389}
+  audioSource: {fileID: 0}
+  hit01: {fileID: 8300000, guid: 4a0bc88dc00da8c4f851add32ec0bfc6, type: 3}
+  hit02: {fileID: 8300000, guid: a493f526016b9d642b5aa0bafa66f8c3, type: 3}
+  hit03: {fileID: 8300000, guid: 72da86718e04ef848ab96b0c5637c84d, type: 3}
+  hit04: {fileID: 8300000, guid: dabe42cc9cd366044915446b8c3b3fb0, type: 3}
+  hit05: {fileID: 8300000, guid: a4e6baf3a213119448ef981d8d8cd7c8, type: 3}
+  hit06: {fileID: 8300000, guid: a6c5c44af7dabe440bed6553d502ef16, type: 3}
+  hit07: {fileID: 8300000, guid: 638a72ca5feabbd4a8143c3f7caab4a1, type: 3}
+  hit08: {fileID: 8300000, guid: 8ef20005c33e2d3469031bc7603b31b6, type: 3}
+  hit09: {fileID: 8300000, guid: b3e557a46bf8ca7478ded0cb382d92f9, type: 3}
+  hit10: {fileID: 8300000, guid: 8b6c5469296710b48b904675eb292126, type: 3}
   hero_HP: 10
   player_Turn: 1
-  heroBehavior: {fileID: 0}
+  soundPlay: 0
+  attackDuration: 2
 --- !u!135 &1961781778
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -465,6 +483,103 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1961781782
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961781776}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2055998992
 GameObject:
   m_ObjectHideFlags: 0
