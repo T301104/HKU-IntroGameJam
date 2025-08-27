@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class StartGame : MonoBehaviour
 {
-   public void PlayGame()
+   public void Update()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        if (Input.GetKeyDown(KeyCode.Space)) { SceneManager.LoadScene("Fight_Scene", LoadSceneMode.Additive); }
     }
 }
