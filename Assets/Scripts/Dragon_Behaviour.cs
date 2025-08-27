@@ -8,18 +8,17 @@ using UnityEngine.SceneManagement;
 public class Dragon_Behaviour : MonoBehaviour
 {
     public bool dragonTurn = false;
-    [SerializeField] public float dragon_hp = 100;
+    [SerializeField] public float dragon_hp = 45;
     [SerializeField] HeroBehavior heroBehavior;
     [SerializeField] Material idle;
     [SerializeField] Material sweep_1;
     [SerializeField] Material sweep_2;
     [SerializeField] Material fire;
-    [SerializeField] bool testturn = false;
-    int attack;
+    int attack = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        attack = 0;
+
     }
 
 
@@ -33,15 +32,18 @@ public class Dragon_Behaviour : MonoBehaviour
         if (heroBehavior.player_Turn == false && dragonTurn)
             {
                 attack = UnityEngine.Random.Range(0, 1);
-                if (attack == 0 || attack == 1)
-                {
-                    StartCoroutine(FireAttack());
-                }
-                else if (attack == 1)
-                {
-                    StartCoroutine(SwipeAttack());
+            if (attack == 0 || attack == 1)
+            {
+                dragonTurn = false;
+                StartCoroutine(FireAttack());
+                
+            }
+            else if (attack == 1)
+            {
+                dragonTurn = false;
+                StartCoroutine(SwipeAttack());
 
-                }
+            }
                 //testturn = true;
                 gameObject.GetComponent<Renderer>().material = idle;
             }
@@ -49,18 +51,18 @@ public class Dragon_Behaviour : MonoBehaviour
 
     private IEnumerator FireAttack()
     {
-        Debug.Log("vuur");
         gameObject.GetComponent<Renderer>().material = fire;
         yield return new WaitForSeconds(1f);
+        heroBehavior.player_Turn = true;
     }
     private IEnumerator SwipeAttack()
     {
 
-        Debug.Log("Swipe");
         gameObject.GetComponent<Renderer>().material = sweep_1;
         yield return new WaitForSeconds(1f);
         gameObject.GetComponent<Renderer>().material = sweep_2;
         yield return new WaitForSeconds(1f);
+        heroBehavior.player_Turn = true;
 
     }
 }
