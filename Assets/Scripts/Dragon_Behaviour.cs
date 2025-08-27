@@ -21,7 +21,6 @@ public class Dragon_Behaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer = 0;
         if (testturn == false)
             {
             attack = UnityEngine.Random.Range(0, 1);
