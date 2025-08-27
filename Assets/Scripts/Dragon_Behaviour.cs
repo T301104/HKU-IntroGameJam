@@ -27,7 +27,7 @@ public class Dragon_Behaviour : MonoBehaviour
     {
         if (dragon_hp <= 0)
         {
-        SceneManager.LoadScene("GameWin", LoadSceneMode.Additive);
+        SceneManager.LoadScene("GameWin");
         }
         if (heroBehavior.player_Turn == false && dragonTurn)
             {

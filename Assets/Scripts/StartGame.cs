@@ -2,11 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class StartGame : MonoBehaviour
 {
-   public void Update()
+
+    InputAction attackAction;
+    public void Start()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) { SceneManager.LoadScene("Fight_Scene", LoadSceneMode.Additive); }
+        attackAction = InputSystem.actions.FindAction("Attack");
+
+    }
+    public void Update()
+    {
+        if (attackAction.WasPressedThisFrame()) { SceneManager.LoadScene("Fight_Scene"); }
     }
 }
