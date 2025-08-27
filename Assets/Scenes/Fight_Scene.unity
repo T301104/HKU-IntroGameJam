@@ -153,7 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Dragon_Behaviour
   dragonTurn: 0
   dragon_hp: 100
-  heroBehavior: {fileID: 0}
+  heroBehavior: {fileID: 1811291236}
   idle: {fileID: 2100000, guid: 952831c67743dd144b2ba57dcc506525, type: 2}
   sweep_1: {fileID: 2100000, guid: b70feb5df89b86a428e607bf70b34e99, type: 2}
   sweep_2: {fileID: 2100000, guid: 8626ff9437d32c74fbe5022efdfa48cb, type: 2}
@@ -615,7 +615,7 @@ GameObject:
   - component: {fileID: 1811291234}
   - component: {fileID: 1811291233}
   - component: {fileID: 1811291232}
-  - component: {fileID: 1811291231}
+  - component: {fileID: 1811291236}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -623,26 +623,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1811291231
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1811291230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 420c2923b3f38be40a991579d1f62b94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Dragon_Behaviour
-  dragonTurn: 0
-  dragon_hp: 100
-  heroBehavior: {fileID: 0}
-  idle: {fileID: 2100000, guid: 952831c67743dd144b2ba57dcc506525, type: 2}
-  sweep_1: {fileID: 2100000, guid: b70feb5df89b86a428e607bf70b34e99, type: 2}
-  sweep_2: {fileID: 2100000, guid: 8626ff9437d32c74fbe5022efdfa48cb, type: 2}
-  fire: {fileID: 2100000, guid: c279a7f817811f145a440270df5d4acf, type: 2}
-  testturn: 0
 --- !u!64 &1811291232
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -690,7 +670,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 952831c67743dd144b2ba57dcc506525, type: 2}
+  - {fileID: 2100000, guid: 2f20b5bc9c667b5438403e5d1f01d594, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -730,12 +710,42 @@ Transform:
   m_GameObject: {fileID: 1811291230}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.70710677, z: -0.70710677, w: 0}
-  m_LocalPosition: {x: 0, y: -0.23, z: -0.14}
-  m_LocalScale: {x: 2.29, y: 1, z: 1.16}
+  m_LocalPosition: {x: 3.57, y: -4.28, z: -0.14}
+  m_LocalScale: {x: -0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 90, z: -90}
+--- !u!114 &1811291236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1811291230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf67f06660aeaa6408af36c90f5721bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HeroBehavior
+  dragon_Behaviour: {fileID: 0}
+  audioSource: {fileID: 0}
+  hit01: {fileID: 8300000, guid: 4a0bc88dc00da8c4f851add32ec0bfc6, type: 3}
+  hit02: {fileID: 8300000, guid: a493f526016b9d642b5aa0bafa66f8c3, type: 3}
+  hit03: {fileID: 8300000, guid: 72da86718e04ef848ab96b0c5637c84d, type: 3}
+  hit04: {fileID: 8300000, guid: dabe42cc9cd366044915446b8c3b3fb0, type: 3}
+  hit05: {fileID: 8300000, guid: a4e6baf3a213119448ef981d8d8cd7c8, type: 3}
+  hit06: {fileID: 8300000, guid: a6c5c44af7dabe440bed6553d502ef16, type: 3}
+  hit07: {fileID: 8300000, guid: 638a72ca5feabbd4a8143c3f7caab4a1, type: 3}
+  hit08: {fileID: 8300000, guid: 8ef20005c33e2d3469031bc7603b31b6, type: 3}
+  hit09: {fileID: 8300000, guid: b3e557a46bf8ca7478ded0cb382d92f9, type: 3}
+  hit10: {fileID: 8300000, guid: 8b6c5469296710b48b904675eb292126, type: 3}
+  hero_HP: 3
+  idle: {fileID: 0}
+  attack: {fileID: 0}
+  player_Turn: 1
+  soundPlay: 0
+  attackDuration: 1.2
 --- !u!1 &2120253073
 GameObject:
   m_ObjectHideFlags: 0
@@ -748,6 +758,7 @@ GameObject:
   - component: {fileID: 2120253075}
   - component: {fileID: 2120253074}
   - component: {fileID: 2120253077}
+  - component: {fileID: 2120253078}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -873,6 +884,103 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!82 &2120253078
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2120253073}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 253758642ef78e446a2f111ca700d19e, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

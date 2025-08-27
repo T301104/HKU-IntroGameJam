@@ -2,6 +2,8 @@ using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+
 
 public class Dragon_Behaviour : MonoBehaviour
 {
@@ -24,21 +26,25 @@ public class Dragon_Behaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (heroBehavior.player_Turn == false && dragonTurn)
+        if (dragon_hp <= 0)
         {
-            attack = UnityEngine.Random.Range(0, 1);
-            if (attack == 0 || attack == 1)
-            {
-                StartCoroutine(FireAttack());
-            }
-            else if (attack == 1)
-            {
-                StartCoroutine(SwipeAttack());
-
-            }
-            //testturn = true;
-            gameObject.GetComponent<Renderer>().material = idle;
+        SceneManager.LoadScene("GameWin", LoadSceneMode.Additive);
         }
+        if (heroBehavior.player_Turn == false && dragonTurn)
+            {
+                attack = UnityEngine.Random.Range(0, 1);
+                if (attack == 0 || attack == 1)
+                {
+                    StartCoroutine(FireAttack());
+                }
+                else if (attack == 1)
+                {
+                    StartCoroutine(SwipeAttack());
+
+                }
+                //testturn = true;
+                gameObject.GetComponent<Renderer>().material = idle;
+            }
     }
 
     private IEnumerator FireAttack()
